@@ -8,14 +8,18 @@ FPS = 60
 
 
 class Bird:
+    SIZE = 50
+
     def __init__(self):
         self.x = 100
         self.y = HEIGHT // 2
         self.velocity = 0
         self.gravity = 0.5
         self.flap_strength = -10
-        self.width = 40
-        self.height = 30
+        self.image = pygame.image.load("kun.png").convert_alpha()
+        self.image = pygame.transform.scale(self.image, (self.SIZE, self.SIZE))
+        self.width = self.SIZE
+        self.height = self.SIZE
 
     def flap(self):
         self.velocity = self.flap_strength
@@ -28,7 +32,7 @@ class Bird:
         return pygame.Rect(self.x, self.y, self.width, self.height)
 
     def draw(self, screen):
-        pygame.draw.rect(screen, (255, 255, 0), self.get_rect())
+        screen.blit(self.image, (self.x, self.y))
 
 
 class Pipe:
