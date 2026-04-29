@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import asyncio
 
 WIDTH, HEIGHT = 400, 600
 FPS = 60
@@ -148,20 +149,21 @@ class Game:
 
         pygame.display.flip()
 
-    def run(self):
+    async def run(self):
         running = True
         while running:
             running = self.handle_events()
             self.update()
             self.render()
             self.clock.tick(FPS)
+            await asyncio.sleep(0)
         pygame.quit()
         sys.exit()
 
 
 def main():
     game = Game()
-    game.run()
+    asyncio.run(game.run())
 
 
 if __name__ == "__main__":
