@@ -8,14 +8,14 @@ FPS = 60
 
 
 class Bird:
-    SIZE = 50
+    SIZE = 32
 
     def __init__(self):
         self.x = 100
         self.y = HEIGHT // 2
         self.velocity = 0
         self.gravity = 0.5
-        self.flap_strength = -10
+        self.flap_strength = -7
         self.image = pygame.image.load("kun.png").convert_alpha()
         self.image = pygame.transform.scale(self.image, (self.SIZE, self.SIZE))
         self.width = self.SIZE
